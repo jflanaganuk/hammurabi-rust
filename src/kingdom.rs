@@ -3,12 +3,15 @@ use rand::Rng;
 
 use crate::io;
 use crate::consts;
+use crate::ascii;
 
 pub fn plant_seeds(mut seeds: i32, land: i32, mut pop: i32) -> (bool, i32, i32) {
     let mut success: bool = false;
     let mut input_amount: i32 = -1;
     while input_amount == -1 {
         io::clear_screen();
+        ascii::grape();
+        println!("");
         println!("====[Planting Seeds]====");
         println!("Current seeds: {}", seeds);
         println!("Available land: {}", land);
@@ -49,6 +52,8 @@ pub fn buy_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     let mut input_amount: i32 = -1;
     while input_amount == -1 {
         io::clear_screen();
+        ascii::land();
+        println!("");
         println!("====[Buying Land]====");
         println!("Current seeds: {}", seeds);
         println!("Current land: {}", land);
@@ -74,6 +79,8 @@ pub fn sell_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     let mut input_amount: i32 = -1;
     while input_amount == -1 {
         io::clear_screen();
+        ascii::land();
+        println!("");
         println!("====[Selling Land]====");
         println!("Current seeds: {}", seeds);
         println!("Current land: {}", land);

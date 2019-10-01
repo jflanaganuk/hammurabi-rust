@@ -1,6 +1,7 @@
 mod kingdom;
 mod io;
 mod consts;
+mod ascii;
 
 fn main() {
     let mut land: i32 = 150;
@@ -62,6 +63,10 @@ fn main() {
                 }
             }
             else if input == "4" {
+                ascii::clock();
+                println!("");
+                println!("Progressing kingdom...");
+                io::accept_input();
                 let (new_pop, new_seeds) = kingdom::process_seed_planting(pop, seeds, 0);
                 pop = new_pop;
                 seeds = new_seeds;
