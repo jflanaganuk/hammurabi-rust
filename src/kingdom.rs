@@ -147,6 +147,7 @@ fn population_boom(pop: i32) -> i32 {
         println!("Your people are prospering under your just rule! You have a population explosion going on right now!");
         pop * 2
     } else {
+        ascii::just_rule();
         println!("A normal year concludes, but you wish you had more subjects");
         pop
     }
@@ -167,14 +168,16 @@ fn barbarian_attack(pop: i32, land: i32) -> i32 {
 }
 
 fn disease(pop: i32, seeds: i32) -> i32 {
-    ascii::disease();
     if seeds > (pop * 2) {
+        ascii::disease();
         println!("A plague has swept your kingdom, thankfully your food stores have helped most people recover fully!");
         (pop as f32 * 0.9) as i32
     } else if seeds < 100 {
+        ascii::death();
         println!("A deadly plague has swept your kingdom, wiping out all life...");
         0
     } else {
+        ascii::disease();
         println!("A plague has swept your kingdom, many have died");
         pop - 100
     }
