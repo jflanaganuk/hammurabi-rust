@@ -116,6 +116,7 @@ pub fn progress_year(mut year: u8, mut seeds: i32, mut land: i32, mut pop: i32) 
 fn apply_random_events(mut seeds: i32, land: i32, mut pop: i32) -> (i32, i32, i32) {
     let mut rng = rand::thread_rng();
     let number = rng.gen_range(0, 10);
+    io::clear_screen();
     match number {
         1 => seeds = good_harvest(seeds),
         2 => seeds = bad_harvest(seeds),

@@ -1,4 +1,5 @@
 use std::io::{stdin, stdout, Write};
+use crate::ascii;
 
 pub fn starting_output(year: u8, land: i32, pop: i32, seeds: i32) {
     println!("====[Welcome to Hammurabi]====");
@@ -6,6 +7,21 @@ pub fn starting_output(year: u8, land: i32, pop: i32, seeds: i32) {
     println!("Current Land: {}", land);
     println!("Current Population: {}", pop);
     println!("Current Seeds: {}", seeds);
+    if pop <= 15 {
+        ascii::no_city();
+    } else if pop > 15 && pop <= 125 {
+        ascii::tiny_city();
+    } else if pop > 125 && pop <= 175 {
+        ascii::small_city();
+    } else if pop > 175 && pop <= 275 {
+        ascii::med_city();
+    } else if pop > 275 && pop <= 500 {
+        ascii::large_city();
+    } else if pop > 500 && pop <= 1000 {
+        ascii::huge_city();
+    } else {
+        ascii::massive_city();
+    }
     println!("");
     println!("What would you like to do?");
     println!("");

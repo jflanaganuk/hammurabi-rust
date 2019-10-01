@@ -65,7 +65,7 @@ fn main() {
             else if input == "4" {
                 ascii::clock();
                 println!("");
-                println!("Progressing kingdom...");
+                println!("Progressing kingdom... (press enter)");
                 io::accept_input();
                 let (new_pop, new_seeds) = kingdom::process_seed_planting(pop, seeds, 0);
                 pop = new_pop;
