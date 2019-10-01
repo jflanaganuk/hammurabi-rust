@@ -15,7 +15,7 @@ fn main() {
     let mut score: i32 = 0;
 
     while !quit {
-        if pop > 10000 {
+        if score > 100000 {
             quit = true;
             win = true;
         } else if showing_error_message {
@@ -101,6 +101,7 @@ fn main() {
         println!("Your final score was: {}", score);
     } else if win {
         ascii::victory_image();
+        println!("Your score is greater than 100000");
         println!("You have beaten the game! Congratulations!");
     } else {
         println!("Bye");
