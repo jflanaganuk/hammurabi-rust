@@ -19,6 +19,7 @@ pub fn plant_seeds(mut seeds: i32, land: i32, mut pop: i32) -> (bool, i32, i32) 
     if amount_to_plant > seeds || amount_to_plant > land {
         io::clear_screen();
         println!("You cannot plant that many seeds!");
+        io::accept_input();
     } else {
         let (new_pop, new_seeds) = process_seed_planting(pop, seeds, amount_to_plant);
         pop = new_pop;
@@ -59,6 +60,7 @@ pub fn buy_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     if amount_to_buy * consts::LAND_SEED_COST > seeds {
         io::clear_screen();
         println!("You cannot buy that much land!");
+        io::accept_input();
     } else {
         land = land + amount_to_buy;
         seeds = seeds - (amount_to_buy * consts::LAND_SEED_COST);
@@ -83,6 +85,7 @@ pub fn sell_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     if amount_to_sell > land {
         io::clear_screen();
         println!("You cannot sell that much land!");
+        io::accept_input();
     } else {
         land = land - amount_to_sell;
         seeds = seeds + (amount_to_sell * consts::SEED_LAND_COST);
