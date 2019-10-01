@@ -10,11 +10,15 @@ fn main() {
     let mut year: u8 = 1;
     let mut quit: bool = false;
     let mut dead: bool = false;
+    let mut win: bool = false;
     let mut showing_error_message: bool = false;
     let mut score: i32 = 0;
 
     while !quit {
-        if showing_error_message {
+        if pop > 10000 {
+            quit = true;
+            win = true;
+        } else if showing_error_message {
             println!("Press enter to continue...");
             let input: String = io::accept_input();
             if input == "" {
@@ -91,9 +95,13 @@ fn main() {
             score += pop + seeds + land;
         }
     }
+    io::clear_screen();
     if dead {
         println!("Your kingdom fell...");
         println!("Your final score was: {}", score);
+    } else if win {
+        ascii::victory_image();
+        println!("You have beaten the game! Congratulations!");
     } else {
         println!("Bye");
     }

@@ -130,17 +130,20 @@ fn apply_random_events(mut seeds: i32, land: i32, mut pop: i32) -> (i32, i32, i3
 }
 
 fn good_harvest(seeds: i32) -> i32 {
+    ascii::good_harvest();
     println!("You had a more bountiful harvest this year!");
     seeds * 2
 }
 
 fn bad_harvest(seeds: i32) -> i32 {
+    ascii::bad_harvest();
     println!("Crops were wiped out by locusts this year, your seeds stores have taken a hit...");
     seeds / 2
 }
 
 fn population_boom(pop: i32) -> i32 {
     if pop > 500 {
+        ascii::population_boom();
         println!("Your people are prospering under your just rule! You have a population explosion going on right now!");
         pop * 2
     } else {
@@ -150,6 +153,7 @@ fn population_boom(pop: i32) -> i32 {
 }
 
 fn barbarian_attack(pop: i32, land: i32) -> i32 {
+    ascii::barbarians();
     if land > pop {
         println!("Barbarians attacked your kingdom, but your people bravely fought them off!");
         pop
@@ -163,6 +167,7 @@ fn barbarian_attack(pop: i32, land: i32) -> i32 {
 }
 
 fn disease(pop: i32, seeds: i32) -> i32 {
+    ascii::disease();
     if seeds > (pop * 2) {
         println!("A plague has swept your kingdom, thankfully your food stores have helped most people recover fully!");
         (pop as f32 * 0.9) as i32
@@ -176,5 +181,6 @@ fn disease(pop: i32, seeds: i32) -> i32 {
 }
 
 fn no_event(){
+    ascii::normal_year();
     println!("A normal year concludes.");
 }
