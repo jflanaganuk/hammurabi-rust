@@ -29,6 +29,22 @@ pub fn accept_input() -> String {
     s
 }
 
+pub fn accept_number() -> i32 {
+    let mut i = String::new();
+    let _ = stdout().flush();
+    stdin().read_line(&mut i).expect("Did not enter a correct string");
+    if let Some('\n')=i.chars().next_back() {
+        i.pop();
+    }
+    if let Some('\r')=i.chars().next_back() {
+        i.pop();
+    }
+    match i.parse::<i32>() {
+        Ok(i) => i,
+        Err(_) => -1
+    }
+}
+
 pub fn clear_screen() {
     print!("{}[2J", 27 as char);
 }
