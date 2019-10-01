@@ -82,10 +82,13 @@ pub fn progress_year(mut year: u8, mut seeds: i32, mut land: i32, mut pop: i32) 
     seeds = new_seeds;
     land = new_land;
     pop = new_pop;
+    if pop < 0 {
+        pop = 0;
+    }
     (year, seeds, land, pop)
 }
 
-fn apply_random_events(mut seeds: i32, mut land: i32, mut pop: i32) -> (i32, i32, i32) {
+fn apply_random_events(mut seeds: i32, land: i32, mut pop: i32) -> (i32, i32, i32) {
     let mut rng = rand::thread_rng();
     let number = rng.gen_range(0, 10);
     match number {
@@ -111,10 +114,11 @@ fn bad_harvest(seeds: i32) -> i32 {
 }
 
 fn population_boom(pop: i32) -> i32 {
-    if pop > 100 {
+    if pop > 500 {
         println!("Your people are prospering under your just rule! You have a population explosion going on right now!");
         pop * 2
     } else {
+        println!("A normal year concludes, but you wish you had more subjects");
         pop
     }
 }
