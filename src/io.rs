@@ -1,12 +1,14 @@
 use std::io::{stdin, stdout, Write};
 use crate::ascii;
 
+use colored::*;
+
 pub fn starting_output(year: u8, land: i32, pop: i32, seeds: i32) {
-    println!("====[Welcome to Hammurabi]====");
-    println!("Current Year: {}", year);
-    println!("Current Land: {}", land);
-    println!("Current Population: {}", pop);
-    println!("Current Seeds: {}", seeds);
+    println!("{}", "====[Welcome to Hammurabi]====".green());
+    println!("Current Year: {}", year.to_string().bright_blue());
+    println!("Current Land: {}", land.to_string().bright_blue());
+    println!("Current Population: {}", pop.to_string().bright_blue());
+    println!("Current Seeds: {}", seeds.to_string().bright_blue());
     if pop <= 15 {
         ascii::no_city();
     } else if pop > 15 && pop <= 125 {
@@ -25,11 +27,11 @@ pub fn starting_output(year: u8, land: i32, pop: i32, seeds: i32) {
     println!("");
     println!("What would you like to do?");
     println!("");
-    println!("[1]: Plant Seeds (will also progress a year)");
-    println!("[2]: Buy Land");
-    println!("[3]: Sell Land");
-    println!("[4]: Progress a year doing nothing");
-    println!("[q]: Quit Game");
+    println!("{}: Plant Seeds (will also progress a year)", "[1]".yellow());
+    println!("{}: Buy Land", "[2]".yellow());
+    println!("{}: Sell Land", "[3]".yellow());
+    println!("{}: Progress a year doing nothing", "[4]".yellow());
+    println!("{}: Quit Game", "[q]".yellow());
 }
 
 pub fn accept_input() -> String {
