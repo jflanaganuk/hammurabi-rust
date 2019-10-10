@@ -5,6 +5,8 @@ use crate::io;
 use crate::consts;
 use crate::ascii;
 
+use colored::*;
+
 pub fn plant_seeds(mut seeds: i32, land: i32, mut pop: i32) -> (bool, i32, i32) {
     let mut success: bool = false;
     let mut input_amount: i32 = -1;
@@ -12,16 +14,16 @@ pub fn plant_seeds(mut seeds: i32, land: i32, mut pop: i32) -> (bool, i32, i32) 
         io::clear_screen();
         ascii::grape();
         println!("");
-        println!("====[Planting Seeds]====");
-        println!("Current seeds: {}", seeds);
-        println!("Available land: {}", land);
+        println!("{}", "====[Planting Seeds]====".green());
+        println!("Current seeds: {}", seeds.to_string().bright_blue());
+        println!("Available land: {}", land.to_string().bright_blue());
         println!("How many seeds would you like to plant?");
         input_amount = io::accept_number();
     }
     let amount_to_plant: i32 = input_amount;
     if amount_to_plant > seeds || amount_to_plant > land {
         io::clear_screen();
-        println!("You cannot plant that many seeds!");
+        println!("{}", "You cannot plant that many seeds!".red());
         io::accept_input();
     } else {
         let (new_pop, new_seeds) = process_seed_planting(pop, seeds, amount_to_plant);
@@ -54,9 +56,9 @@ pub fn buy_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
         io::clear_screen();
         ascii::land();
         println!("");
-        println!("====[Buying Land]====");
-        println!("Current seeds: {}", seeds);
-        println!("Current land: {}", land);
+        println!("{}", "====[Buying Land]====".green());
+        println!("Current seeds: {}", seeds.to_string().bright_blue());
+        println!("Current land: {}", land.to_string().bright_blue());
         println!("Exchange {} seeds per 1 land", consts::LAND_SEED_COST);
         println!("How much land would you like to buy?");
         input_amount = io::accept_number();
@@ -64,7 +66,7 @@ pub fn buy_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     let amount_to_buy: i32 = input_amount;
     if amount_to_buy * consts::LAND_SEED_COST > seeds {
         io::clear_screen();
-        println!("You cannot buy that much land!");
+        println!("{}", "You cannot buy that much land!".red());
         io::accept_input();
     } else {
         land = land + amount_to_buy;
@@ -81,9 +83,9 @@ pub fn sell_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
         io::clear_screen();
         ascii::land();
         println!("");
-        println!("====[Selling Land]====");
-        println!("Current seeds: {}", seeds);
-        println!("Current land: {}", land);
+        println!("{}", "====[Selling Land]====".green());
+        println!("Current seeds: {}", seeds.to_string().bright_blue());
+        println!("Current land: {}", land.to_string().bright_blue());
         println!("Exchange {} seeds per 1 land", consts::SEED_LAND_COST);
         println!("How much land would you like to sell?");
         input_amount = io::accept_number();
@@ -91,7 +93,7 @@ pub fn sell_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     let amount_to_sell: i32 = input_amount;
     if amount_to_sell > land {
         io::clear_screen();
-        println!("You cannot sell that much land!");
+        println!("{}", "You cannot sell that much land!".red());
         io::accept_input();
     } else {
         land = land - amount_to_sell;
