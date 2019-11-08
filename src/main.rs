@@ -21,7 +21,7 @@ fn main() {
         } else if showing_error_message {
             println!("Press enter to continue...");
             let input: String = io::accept_input();
-            if input == "" {
+            if input.as_str() == "" {
                 showing_error_message = false;
                 io::clear_screen();
             }
@@ -30,7 +30,7 @@ fn main() {
             io::starting_output(year, land, pop, seeds);
             let input: String = io::accept_input();
             io::clear_screen();
-            if input == "1" {
+            if input.as_str() == "1" {
                 let mut planted: bool = false;
                 while !planted {
                     let (new_planted, new_seeds, new_pop) = kingdom::plant_seeds(seeds, land, pop);
@@ -48,7 +48,7 @@ fn main() {
                 land = new_land;
                 pop = new_pop;
             }
-            else if input == "2" {
+            else if input.as_str() == "2" {
                 let mut bought: bool = false;
                 while !bought {
                     let (new_bought, new_seeds, new_land) = kingdom::buy_land(seeds, land);
@@ -57,7 +57,7 @@ fn main() {
                     land = new_land;
                 }
             }
-            else if input == "3" {
+            else if input.as_str() == "3" {
                 let mut sold: bool = false;
                 while !sold {
                     let (new_sold, new_seeds, new_land) = kingdom::sell_land(seeds, land);
@@ -66,9 +66,9 @@ fn main() {
                     land = new_land;
                 }
             }
-            else if input == "4" {
+            else if input.as_str() == "4" {
                 ascii::clock();
-                println!("");
+                println!();
                 println!("Progressing kingdom... (press enter)");
                 io::accept_input();
                 let (new_pop, new_seeds) = kingdom::process_seed_planting(pop, seeds, 0);
@@ -84,7 +84,7 @@ fn main() {
                 land = new_land;
                 pop = new_pop;
             }
-            else if input == "q" {
+            else if input.as_str() == "q" {
                 quit = true;
             }
             else {

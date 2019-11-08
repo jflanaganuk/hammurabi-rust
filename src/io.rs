@@ -24,9 +24,9 @@ pub fn starting_output(year: u8, land: i32, pop: i32, seeds: i32) {
     } else {
         ascii::massive_city();
     }
-    println!("");
+    println!();
     println!("What would you like to do?");
-    println!("");
+    println!();
     println!("{}: Plant Seeds (will also progress a year)", "[1]".yellow());
     println!("{}: Buy Land", "[2]".yellow());
     println!("{}: Sell Land", "[3]".yellow());
