@@ -13,7 +13,7 @@ pub fn plant_seeds(mut seeds: i32, land: i32, mut pop: i32) -> (bool, i32, i32) 
     while input_amount == -1 {
         io::clear_screen();
         ascii::grape();
-        println!("");
+        println!();
         println!("{}", "====[Planting Seeds]====".green());
         println!("Current seeds: {}", seeds.to_string().bright_blue());
         println!("Available land: {}", land.to_string().bright_blue());
@@ -55,7 +55,7 @@ pub fn buy_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     while input_amount == -1 {
         io::clear_screen();
         ascii::land();
-        println!("");
+        println!();
         println!("{}", "====[Buying Land]====".green());
         println!("Current seeds: {}", seeds.to_string().bright_blue());
         println!("Current land: {}", land.to_string().bright_blue());
@@ -82,7 +82,7 @@ pub fn sell_land(mut seeds: i32, mut land: i32) -> (bool, i32, i32) {
     while input_amount == -1 {
         io::clear_screen();
         ascii::land();
-        println!("");
+        println!();
         println!("{}", "====[Selling Land]====".green());
         println!("Current seeds: {}", seeds.to_string().bright_blue());
         println!("Current land: {}", land.to_string().bright_blue());
